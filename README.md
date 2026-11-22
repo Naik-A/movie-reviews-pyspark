@@ -106,27 +106,3 @@ ls output/cleaned_imdb_reviews
 head -n 3 output/cleaned_imdb_reviews/part-*.csv
 ```
 
-## Push to GitHub
-
-Create an empty public repository named `pyspark-movie-reviews` (no README, no .gitignore — this folder already has both). Then, from this folder:
-
-```bash
-git init
-git add .
-git status
-git commit -m "Add PySpark pipeline for the IMDb 50K movie reviews."
-git branch -M main
-git remote add origin https://github.com/<your-username>/pyspark-movie-reviews.git
-git push -u origin main
-```
-
-Or, with the GitHub CLI, create the public repo and push in one step:
-
-```bash
-git init
-git add .
-git commit -m "Add PySpark pipeline for the IMDb 50K movie reviews."
-gh repo create pyspark-movie-reviews --public --source=. --remote=origin --push
-```
-
-`data/IMDB Dataset.csv` and `output/` are listed in `.gitignore`. Check `git status` before the commit and confirm the CSV is not staged.
