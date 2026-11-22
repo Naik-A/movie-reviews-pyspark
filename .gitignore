@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.egg-info/
+
+# macOS and editors
+.DS_Store
+.idea/
+.vscode/
+
+# Spark local files
+metastore_db/
+spark-warehouse/
+derby.log
+*.crc
+
+# Kaggle download is large and is not part of the source repo.
+data/*
+!data/.gitkeep
+
+# Generated CSV folder (part files, _SUCCESS). Recreate by running the script.
+output/*
+!output/.gitkeep
