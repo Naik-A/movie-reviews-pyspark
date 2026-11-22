@@ -105,4 +105,3 @@ Peek at it with:
 ls output/cleaned_imdb_reviews
 head -n 3 output/cleaned_imdb_reviews/part-*.csv
 ```
-
