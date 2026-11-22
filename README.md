@@ -11,12 +11,12 @@ pyspark-movie-reviews/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
+├── process_reviews.py
+├── log4j2.properties
 ├── data/
-│   ├── .gitkeep
+│   ├── import.py
 │   └── IMDB Dataset.csv    # you download this; it is not committed
-├── output/                 # created when the script runs
-└── src/
-    └── process_reviews.py
+└── output/                 # created when the script runs
 ```
 
 ## Setup (macOS)
@@ -46,7 +46,7 @@ Download **IMDB Dataset.csv** from:
 
 https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews
 
-Put it here, including the space in the file name:
+Put it in the data folder, including the space in the file name:
 
 ```text
 data/IMDB Dataset.csv
@@ -59,16 +59,7 @@ The CSV has two columns, `review` and `sentiment`. If the file is missing, the s
 From the repository root, with the virtual environment active:
 
 ```bash
-python src/process_reviews.py
-```
-
-Optional arguments:
-
-```bash
-python src/process_reviews.py \
-  --input "data/IMDB Dataset.csv" \
-  --output "output/cleaned_imdb_reviews" \
-  --min-length 500
+python process_reviews.py
 ```
 
 The first run can take a minute while Spark starts. Later runs are faster.
@@ -79,7 +70,7 @@ Review text in the terminal is shortened so the run fits on one screen. The CSV 
 
 The terminal is split into numbered sections:
 
-1. **Load** — the CSV path and the Spark version.
+1. **Load** — reads `IMDB Dataset.csv`.
 2. **Explore** — `printSchema()` (string columns `review` and `sentiment`) and the first 5 rows, with each review shortened on screen.
 3. **Clean** — row counts before cleaning, after cleaning, and how many rows were removed. Null, empty, and whitespace-only reviews or labels are removed. Sentiment is lowercased.
 4. **Analyze** — total reviews (about 50,000 on the full Kaggle file), a sentiment breakdown, then separate positive and negative counts (about 25,000 each when the file is complete).
@@ -105,3 +96,7 @@ Peek at it with:
 ls output/cleaned_imdb_reviews
 head -n 3 output/cleaned_imdb_reviews/part-*.csv
 ```
+
+## AI disclosure
+
+AI assistance was used while preparing parts of this repository. In process review to format terminal output.

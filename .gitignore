@@ -17,7 +17,5 @@ spark-warehouse/
 derby.log
 *.crc
 
-# Kaggle download is large and is not part of the source repo.
-# The cleaned result in output/ is committed.
-data/*
-!data/.gitkeep
+# Raw Kaggle download stays local. The cleaned result in output/ is committed.
+data/IMDB Dataset.csv
